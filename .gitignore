@@ -1,0 +1,18 @@
+# Ignorar arquivos temporários de salvamento do Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Ignorar a pasta de pacotes baixados (o init.el baixa tudo de novo sozinho ao clonar)
+elpa/
+
+# Ignorar as gramáticas do Tree-sitter compiladas localmente
+tree-sitter/
+
+# Ignorar caches e históricos de comandos do Vertico/Consult/Emacs
+auto-save-list/
+transient/
+var/
+.data/
