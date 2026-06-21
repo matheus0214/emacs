@@ -23,7 +23,7 @@
   (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1))))
 
 (setq-default indent-tabs-mode nil)     ; Usa espaços em vez de Tabs para indentar
-(setq-default tab-width 4)              ; Define tamanho do tab como 4 espaços
+(setq-default tab-width 2)              ; Define tamanho do tab como 4 espaços
 (global-display-line-numbers-mode t)    ; Ativa números de linha em todos os buffers
 (column-number-mode t)                  ; Mostra o número da coluna no rodapé
 (electric-pair-mode t)                  ; Auto-completa parênteses, aspas e colchetes

@@ -9,6 +9,9 @@
 elpa/
 eln-cache/
 projects.eld
+history
+places.eld
+recentf.eld
 
 # Ignorar as gramáticas do Tree-sitter compiladas localmente
 tree-sitter/
