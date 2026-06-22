@@ -136,6 +136,26 @@
   :bind (;; Define o atalho universal "Control + x" seguido de "g" para abrir o Git
          ("C-x g" . magit-status)))
 
+;; -----------------------------------------------------------------
+;; 9. ATUALIZAR TÍTULO DA ABA DO TERMINAL COM A PASTA ATUAL
+;; -----------------------------------------------------------------
+(defun rename-terminal-tab-name ()
+  "Envia uma sequência de escape para mudar o título da aba do terminal."
+  (interactive)
+  (when (not (display-graphic-p)) ; Garante que só rode se for no terminal
+    (let ((title-name (if (buffer-file-name)
+                           ;; Se for um arquivo, pega o nome da pasta dele
+                           (file-name-nondirectory (directory-file-name (file-name-directory (buffer-file-name))))
+                         ;; Se for um buffer de pasta (Dired) ou especial, pega o nome do buffer
+                         default-directory)))
+      ;; Envia o comando padrão ANSI de título para o emulador de terminal
+      (send-string-to-terminal (format "\e]2;📁 %s\a" 
+                                       (file-name-nondirectory (directory-file-name title-name)))))))
+
+;; Atualiza a aba sempre que você trocar de arquivo/buffer no Emacs
+(add-hook 'buffer-list-update-hook #'rename-terminal-tab-name)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
